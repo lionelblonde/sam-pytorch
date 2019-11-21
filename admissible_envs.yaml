@@ -1,0 +1,11 @@
+environments:
+    mujoco:
+        InvertedPendulum-v2: InvertedPendulum-v2_s0_mode_d32.npz
+        InvertedDoublePendulum-v2: InvertedDoublePendulum-v2_s0_mode_d32.npz
+        Reacher-v2: Reacher-v2_s0_mode_d32.npz
+        Hopper-v3: Hopper-v2_s0_mode_d32.npz
+        HalfCheetah-v3: HalfCheetah-v2_s0_mode_d32.npz
+        Walker2d-v3: Walker2d-v2_s0_mode_d32.npz
+        Ant-v3: Ant-v2_s0_mode_d32.npz
+        Humanoid-v3: Humanoid-v2_s0_mode_d32.np
+        HumanoidStandup-v2: ~

@@ -1,0 +1,75 @@
+name: 'sam training spawner with single fixed hp set on my macbook'
+
+resources:
+  conda_env: 'pytorch'
+  num_workers: 2
+  cluster: 'local'
+
+logging:
+  checkpoint_dir: 'data/checkpoints'
+  log_dir: 'data/logs'
+  enable_visdom: true
+  visdom_dir: 'data/summaries'
+
+parameters:
+  # Generic
+  task: 'train'
+  algo: 'sam'
+  cuda: false
+  pixels: false
+  num_seeds: 1
+  benchmark: 'mujoco'
+  difficulty: 'easy'
+
+  # Training
+  save_frequency: 200
+  num_iters: 1e6
+  training_steps_per_iter: 20
+  eval_steps_per_iter: 50
+  eval_frequency: 10
+
+  # Model
+  with_layernorm: true
+  wd_scale: 1e-4
+
+  # Optimization
+  actor_lr: 3e-4
+  critic_lr: 3e-4
+  clip_norm: 5.
+
+  # Algorithm
+  rollout_len: 5
+  batch_size: 128
+  gamma: 0.99
+  polyak: 0.005
+  reward_scale: 1.
+  noise_type: '"adaptive-param_0.2, normal_0.2"'
+  pn_adapt_frequency: 50
+  mem_size: 50000
+  add_demos_to_mem: false
+
+  # Prioritized replay
+  prioritized_replay: false
+  alpha: 0.3
+  beta: 1.
+  ranked: false
+  unreal: false
+  n_step_returns: true
+  lookahead: 60
+
+  # TD3-specific
+  enable_clipped_double: true
+  enable_targ_actor_smoothing: true
+  td3_std: 0.2
+  td3_c: 0.5
+  actor_update_delay: 2
+  prefill: 200
+
+  # SAM-specific
+  demo_dir: '/Users/lionelblonde/Downloads/expert_demos_mujoco_envs'
+  d_lr: 3e-4
+  state_only: false
+  minimax_only: true
+  ent_reg_scale: 0.
+  d_update_ratio: 2
+  num_demos: 4
